@@ -44,8 +44,8 @@ class Book extends Component {
                     <button onClick={toggleBookStatusFun}>修改</button>
                 </div>
                 <div>
-                    {bookList.map(book =>
-                        <BookItem bookObj={book}/>
+                    {bookList.map((book,i) =>
+                        <BookItem key={i} bookObj={book}/>
                     )}
                 </div>
             </div>
