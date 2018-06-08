@@ -5,6 +5,8 @@ import Counter from './components/Counter'
 import Book from './components/Book'
 import reducer from './reducers/index'
 
+import {addBook,toogleBookStatus} from './actions/index'
+
 const store = createStore(reducer)
 console.log(store.getState(),'====');
 const rootEl = document.getElementById('root')
@@ -20,8 +22,8 @@ const render = () => {
       <Book
         bookList={store.getState().book.bookList}
         bookStatus = {store.getState().book.bookStatus}
-        addBookFun={(bookObj)=>{store.dispatch({type:'ADDBOOK',bookObj})}}
-        toggleBookStatusFun={()=>store.dispatch({ type: 'TOGGLEBOOKSTATUS' })}/>
+        addBookFun={(bookObj)=>{store.dispatch(addBook(bookObj))}}
+        toggleBookStatusFun={()=>store.dispatch(toogleBookStatus())}/>
     </div>,
     rootEl
   )

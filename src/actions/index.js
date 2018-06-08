@@ -1,4 +1,8 @@
 export const addBook = bookObj => ({
-    type: 'ADD_BOOK',
+    type: 'ADDBOOK',
     bookObj
+})
+
+export const toogleBookStatus = () => ({
+    type: 'TOGGLEBOOKSTATUS'
 })
