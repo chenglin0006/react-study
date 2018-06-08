@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {connect} from "react-redux";
+import {changeMemoStatus} from "../../actions/index"
 
 class MemoItem extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ MemoItem.propTypes = {
 const mapDispatchToProps = (dispatch) => {
     return {
         changeMemoStatus: (id) =>{
-            dispatch({type:'CHANGEMEMO',id});
+            dispatch(changeMemoStatus(id));
         }
     }
 }

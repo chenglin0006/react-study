@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
+import {addMemo} from "../../actions/index"
 
 class MemoHeader extends Component {
 
@@ -46,7 +47,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addMemoFun: (memoObj) =>{
-            dispatch({type:'ADDMEMO',memoObj});
+            dispatch(addMemo(memoObj));
         }
     }
 }

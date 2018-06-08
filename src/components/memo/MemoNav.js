@@ -8,7 +8,7 @@ class MemoNav extends Component {
                 <div>
                     <ul role="nav">
                         <li><Link to="new">new</Link></li>
-                        <li><Link to="old">old</Link></li>
+                        <li><Link to="old">completed</Link></li>
                     </ul>
                 </div>
             </div>
