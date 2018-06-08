@@ -74,7 +74,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'TOGGLE'});
         },
         addBookFun: (bookObj) =>{
-            debugger
             dispatch({type: 'ADDBOOK',bookObj});
         }
     }
