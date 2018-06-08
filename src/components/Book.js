@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import BookItem from './BookItem'
+import { Link } from 'react-router';
 
 class Book extends Component {
     constructor(props) {
