@@ -26,11 +26,13 @@
 import { combineReducers } from 'redux'
 import count from './count'
 import book from './book'
+import student from './student'
 
 //使用redux的combineReducers方法将所有reducer打包起来
 const rootReducer = combineReducers({
-  book,
-  count
+    book,
+    count,
+    student
 });
 
 export default rootReducer;
