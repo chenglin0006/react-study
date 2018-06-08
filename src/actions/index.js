@@ -4,5 +4,5 @@ export const addBook = bookObj => ({
 })
 
 export const toogleBookStatus = () => ({
-    type: 'TOGGLEBOOKSTATUS'
+    type: 'TOGGLE'
 })

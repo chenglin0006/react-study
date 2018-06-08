@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <div>
                 <ul role="nav">
-                    <li><Link to="/">book</Link></li>
+                    <li><Link to="book">book</Link></li>
                     <li><Link to="about">About</Link></li>
                     <li><Link to="message">message</Link></li>
                 </ul>

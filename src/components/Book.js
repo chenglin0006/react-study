@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import BookItem from './BookItem'
 import { Link } from 'react-router';
 
+import {addBook,toogleBookStatus} from "../actions";
+
 class Book extends Component {
     constructor(props) {
         super(props);
@@ -74,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'TOGGLE'});
         },
         addBookFun: (bookObj) =>{
-            dispatch({type: 'ADDBOOK',bookObj});
+            debugger
+            dispatch(addBook(bookObj));
         }
     }
 }
