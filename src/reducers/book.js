@@ -1,13 +1,17 @@
-export default (state = {bookStatus:true,
-    bookList:[]}, action) => {
+export default (state = {cnt: 11,status:false,bookList:[]}, action) => {
     switch (action.type) {
-        case 'TOGGLEBOOKSTATUS':
-            state.bookStatus = !state.bookStatus
-            return state
+        case 'ADD':
+            return Object.assign({},state,{cnt: state.cnt + 1});
+        case 'REDUCE':
+            return Object.assign({},state,{cnt: state.cnt - 1});
+        case 'TOGGLE':
+            return Object.assign({},state,{status:!state.status})
         case 'ADDBOOK':
-            state.bookList.push(action.bookObj);
-            return state
+            return Object.assign({},state,{bookList:[
+                    ...state.bookList,
+                    action.bookObj
+                ]})
         default:
-            return state
+            return state;
     }
 }

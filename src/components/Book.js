@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import BookItem from './BookItem'
 
@@ -29,28 +30,56 @@ class Book extends Component {
         this.props.addBookFun(bookObj);
     }
 
-    componentDidMount(){
-    }
-
-    render() {
-        const {bookList,bookStatus,addBookFun,toggleBookStatusFun} = this.props
+    render(){
+        const {value,status,bookList, reduceHandler, addHandler,toggleFun,addBookFun} = this.props;
         return (
             <div>
+                {status==true?'true':'false'}
+                <p>{value}</p>
+                <button onClick={reduceHandler}>-</button>
+                <button onClick={addHandler}>+</button>
+                <button onClick={toggleFun}>change</button>
+                <input placeholder="请输入书名" value={this.state.bookName} onChange={(e)=>this.changeName(e,'name')}/>
+                <input placeholder="请输入作者" value={this.state.bookAuthor} onChange={(e)=>this.changeName(e,'author')}/>
+                <button onClick={()=>this.submitFun()}>新增</button>
                 <div>
-                    {bookStatus==true?'true':'false'}
-                    <input placeholder="请输入书名" value={this.state.bookName} onChange={(e)=>this.changeName(e,'name')}/>
-                    <input placeholder="请输入作者" value={this.state.bookAuthor} onChange={(e)=>this.changeName(e,'author')}/>
-                    <button onClick={this.submitFun}>新增</button>
-                    <button onClick={toggleBookStatusFun}>修改</button>
-                </div>
-                <div>
-                    {bookList.map((book,i) =>
-                        <BookItem key={i} bookObj={book}/>
-                    )}
+                    <div>
+                        {bookList.map((book,i) =>
+                            <BookItem key={i} bookObj={book}/>
+                        )}
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default Book
+const mapStateToProps = (state) => {
+    return {
+        value: state.book.cnt,
+        status:state.book.status,
+        bookList:state.book.bookList
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        reduceHandler: () => {
+            dispatch({type: 'REDUCE'});
+        },
+        addHandler: () => {
+            dispatch({type: 'ADD'});
+        },
+        toggleFun: () => {
+            dispatch({type: 'TOGGLE'});
+        },
+        addBookFun: (bookObj) =>{
+            debugger
+            dispatch({type: 'ADDBOOK',bookObj});
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Book)

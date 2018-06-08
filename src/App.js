@@ -1,11 +1,9 @@
 import React from 'react'
-import Student from './components/Student'
-
-var studentObj = {name:'jhon',age:13};
+import Book from './components/Book'
 
 const App = () => (
     <div>
-        <Student student={studentObj}></Student>
+        <Book></Book>
     </div>
 )
 
