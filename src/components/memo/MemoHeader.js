@@ -31,6 +31,7 @@ class MemoHeader extends Component {
         const {addMemoFun} = this.props;
         return (
             <div>
+                <div>请输入：</div>
                 <input value={this.state.memoDesc} onChange={(e)=>this.changeMemo(e)}/>
                 <button onClick={()=>this.submitFun()}>添加</button>
             </div>
