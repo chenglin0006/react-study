@@ -11,6 +11,14 @@ export default (state = {cnt: 11,status:false,bookList:[]}, action) => {
                     ...state.bookList,
                     action.bookObj
                 ]})
+        case 'ADDINTERVEL':
+            return (dispatch, getState) => {
+                setTimeout(function () {
+                    let a = getState().cnt;
+                    console.log(a,'======');
+                    dispatch({type:'ADD'})
+                },2000)
+            }
         default:
             return state;
     }

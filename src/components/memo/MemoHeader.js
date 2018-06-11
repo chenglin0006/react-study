@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
-import {addMemo} from "../../actions/index"
+import {addMemo} from "../../actions/memoAction"
 
 class MemoHeader extends Component {
 

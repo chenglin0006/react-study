@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import BookItem from './BookItem'
 import { Link } from 'react-router';
 
-import {addBook,toogleBookStatus} from "../actions";
+import {addBook,toogleBookStatus,addInterval} from "../actions/bookAction";
 
 class Book extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class Book extends Component {
     }
 
     render(){
-        const {value,status,bookList, reduceHandler, addHandler,toggleFun,addBookFun} = this.props;
+        const {value,status,bookList, reduceHandler, addHandler,toggleFun,addInterval} = this.props;
         return (
             <div>
                 {status==true?'true':'false'}
@@ -42,6 +42,7 @@ class Book extends Component {
                 <button onClick={reduceHandler}>-</button>
                 <button onClick={addHandler}>+</button>
                 <button onClick={toggleFun}>change</button>
+                <button onClick={addInterval}>addInterval</button>
                 <input placeholder="请输入书名" value={this.state.bookName} onChange={(e)=>this.changeName(e,'name')}/>
                 <input placeholder="请输入作者" value={this.state.bookAuthor} onChange={(e)=>this.changeName(e,'author')}/>
                 <button onClick={()=>this.submitFun()}>新增</button>
@@ -72,11 +73,13 @@ const mapDispatchToProps = (dispatch) => {
         addHandler: () => {
             dispatch({type: 'ADD'});
         },
+        addInterval: ()=>{
+            dispatch(addInterval());
+        },
         toggleFun: () => {
             dispatch({type: 'TOGGLE'});
         },
         addBookFun: (bookObj) =>{
-            debugger
             dispatch(addBook(bookObj));
         }
     }

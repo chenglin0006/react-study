@@ -24,14 +24,12 @@
 // }
 
 import { combineReducers } from 'redux'
-import count from './count'
 import book from './book'
 import memo from './memo'
 
 //使用redux的combineReducers方法将所有reducer打包起来
 const rootReducer = combineReducers({
     book,
-    count,
     memo
 });
 
